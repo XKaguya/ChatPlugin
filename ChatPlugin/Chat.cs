@@ -33,20 +33,14 @@ namespace ChatPlugin.Commands
                 return false;
             }
 
-            if (arguments.Count < 2)
-            {
-                response = "参数不足，需要2个参数：1.内容、2.向谁发送。（参数2拥有三种：1、2、3。其中1代表只向本阵营发送，2代表向全体人类发送，3代表向全体玩家发送。）";
-                return false;
-            }
-
             string[] argsArray = arguments.ToArray();
             int broadcastType = 1;
 
-            if (!string.IsNullOrEmpty(argsArray[1]))
+            if (argsArray.Length > 1 && !string.IsNullOrEmpty(argsArray[1]))
             {
                 if (!int.TryParse(argsArray[1], out broadcastType))
                 {
-                    response = "参数2必须是数字（1、2、3）";
+                    response = "参数错误，say指令需要2个参数：1.内容、2.向谁发送。（参数2拥有三种：1、2、3。其中1代表只向本阵营发送，2代表向全体人类发送，3代表向全体玩家发送。）";
                     return false;
                 }
             }
