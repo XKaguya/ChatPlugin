@@ -148,7 +148,7 @@ namespace ChatPlugin.Commands
                     foreach (var p in showToPlayers_Dead)
                     {
                         Log.Debug(p);
-                        p.ShowHint(message, 5);
+                        p.Broadcast(5, message, Broadcast.BroadcastFlags.Normal, true);
                     }
                 }
 
