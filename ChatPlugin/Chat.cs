@@ -2,14 +2,15 @@ using System;
 using CommandSystem;
 using Exiled.API.Features;
 using RemoteAdmin;
-using Exiled.API.Enums;
-using System.Text.RegularExpressions;
 using PlayerRoles;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace ChatPlugin.Commands
 {
     [CommandHandler(typeof(ClientCommandHandler))]
+
+
     public class Say : ICommand
     {
         public string Command => "say";
@@ -19,11 +20,31 @@ namespace ChatPlugin.Commands
 
         string Range;
 
+        int broadcastType;
+        // 1 Side Only
+        // 2 All Human
+        // 3 All
+
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             if (!(sender is PlayerCommandSender))
             {
                 response = "Error. Only players can use this command.";
+                return false;
+            }
+
+            if (arguments.Count < 2)
+            {
+                response = "Error. Not enough arguments.";
+                return false;
+            }
+
+            string[] argsArray = arguments.ToArray();
+            int.TryParse(argsArray[1], out broadcastType);
+
+            if (!int.TryParse(argsArray[1], out broadcastType))
+            {
+                response = "Error. The second argument must be an integer.";
                 return false;
             }
 
@@ -34,16 +55,15 @@ namespace ChatPlugin.Commands
             {
                 Range = "¹Û²ìÕß";
 
-                string content = string.Join(" ", arguments);
-
-                string message = $"[{Range}][{playerName}]: {content}";
+                string message = $"[{Range}][{playerName}]: {argsArray[0]}";
 
                 Log.Info(message);
 
-                var ShowToPlayers = Player.List.Where(player_1 => player_1.Role.Side == player.Role.Side).ToList();
-                foreach (var player_1 in ShowToPlayers)
+                var showToPlayers = Player.List.Where(p => p.Role.Side == player.Role.Side).ToList();
+                foreach (var p in showToPlayers)
                 {
-                    player.Broadcast(5, message);
+                    Log.Debug(p);
+                    p.Broadcast(5, message, Broadcast.BroadcastFlags.Normal, true);
                 }
 
                 response = message;
@@ -53,16 +73,15 @@ namespace ChatPlugin.Commands
             {
                 Range = "´óÌü";
 
-                string content = string.Join(" ", arguments);
-
-                string message = $"[{Range}][{playerName}]: {content}";
+                string message = $"[{Range}][{playerName}]: {argsArray[0]}";
 
                 Log.Info(message);
 
-                var ShowToPlayers = Player.List.Where(player_1 => player_1.Role.Side == player.Role.Side).ToList();
-                foreach (var player_1 in ShowToPlayers)
+                var showToPlayers = Player.List.Where(p => p.Role.Side == player.Role.Side).ToList();
+                foreach (var p in showToPlayers)
                 {
-                    player.Broadcast(5, message);
+                    Log.Debug(p);
+                    p.Broadcast(5, message, Broadcast.BroadcastFlags.Normal, true);
                 }
 
                 response = message;
@@ -88,17 +107,48 @@ namespace ChatPlugin.Commands
                 Room room = player.CurrentRoom;
                 string roomName = room.RoomName.ToString();
 
-                string content = string.Join(" ", arguments);
 
-                string message = $"[{Range}][{playerName}][{roomName}]: {content}";
+                string message = $"[{Range}][{playerName}][{roomName}]: {argsArray[0]}";
 
-                Log.Info(message);
-
-                var ShowToPlayers = Player.List.Where(player_1 => player_1.Role.Side == player.Role.Side).ToList();
-                foreach (var player_1 in ShowToPlayers)
+                if (broadcastType == 1)
                 {
-                    player.ShowHint(message, 5);
+                    Log.Info(message);
+
+                    var showToPlayers = Player.List.Where(p => p.Role.Side == player.Role.Side).ToList();
+                    foreach (var p in showToPlayers)
+                    {
+                        Log.Debug(p);
+                        p.ShowHint(message, 5);
+                    }
                 }
+
+                else if (broadcastType == 2)
+                {
+                    var showToPlayers_Human = Player.List.Where(p => p.IsHuman == player.IsHuman).ToList();
+                    foreach (var p in showToPlayers_Human)
+                    {
+                        Log.Debug(p);
+                        p.ShowHint(message, 5);
+                    }
+                }
+
+                else if (broadcastType == 3)
+                {
+                    var showToPlayers_Alive = Player.List.Where(p => p.IsAlive).ToList();
+                    foreach (var p in showToPlayers_Alive)
+                    {
+                        Log.Debug(p);
+                        p.ShowHint(message, 5);
+                    }
+
+                    var showToPlayers_Dead = Player.List.Where(p => p.IsDead).ToList();
+                    foreach (var p in showToPlayers_Dead)
+                    {
+                        Log.Debug(p);
+                        p.ShowHint(message, 5);
+                    }
+                }
+
 
                 response = message;
                 return false;
