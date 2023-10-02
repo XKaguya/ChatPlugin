@@ -40,12 +40,15 @@ namespace ChatPlugin.Commands
             }
 
             string[] argsArray = arguments.ToArray();
-            int.TryParse(argsArray[1], out broadcastType);
+            int broadcastType = 1;
 
-            if (!int.TryParse(argsArray[1], out broadcastType))
+            if (!string.IsNullOrEmpty(argsArray[1]))
             {
-                response = "参数2必须是数字（1、2、3）";
-                return false;
+                if (!int.TryParse(argsArray[1], out broadcastType))
+                {
+                    response = "参数2必须是数字（1、2、3）";
+                    return false;
+                }
             }
 
             Player player = Player.Get(sender);
