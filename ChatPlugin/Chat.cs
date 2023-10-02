@@ -35,17 +35,20 @@ namespace ChatPlugin.Commands
 
             if (arguments.Count < 2)
             {
-                response = "Error. Not enough arguments.";
+                response = "参数不足，需要2个参数：1.内容、2.向谁发送。（参数2拥有三种：1、2、3。其中1代表只向本阵营发送，2代表向全体人类发送，3代表向全体玩家发送。）";
                 return false;
             }
 
             string[] argsArray = arguments.ToArray();
-            int.TryParse(argsArray[1], out broadcastType);
+            int broadcastType = 1;
 
-            if (!int.TryParse(argsArray[1], out broadcastType))
+            if (!string.IsNullOrEmpty(argsArray[1]))
             {
-                response = "Error. The second argument must be an integer.";
-                return false;
+                if (!int.TryParse(argsArray[1], out broadcastType))
+                {
+                    response = "参数2必须是数字（1、2、3）";
+                    return false;
+                }
             }
 
             Player player = Player.Get(sender);
@@ -145,10 +148,9 @@ namespace ChatPlugin.Commands
                     foreach (var p in showToPlayers_Dead)
                     {
                         Log.Debug(p);
-                        p.ShowHint(message, 5);
+                        p.Broadcast(5, message, Broadcast.BroadcastFlags.Normal, true);
                     }
                 }
-
 
                 response = message;
                 return false;
