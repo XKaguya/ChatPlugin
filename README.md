@@ -2,7 +2,7 @@
 
 # English
 
-A plugin that allows player use keyboard to communicate with teammates.
+A plugin based on Exiled for SCP:SL. This plugin allows player use keyboard to communicate with teammates.
 This plugin send message to same side as player's.
 
 Usage:
@@ -15,7 +15,7 @@ And you'll see message.
 
 # Chinese
 
-一个允许你用键盘与队友交流的插件。
+本插件基于 Exiled. 本插件允许你用键盘与队友交流的插件。
 这个插件默认发送信息给相同阵营的玩家。
 
 用法:
