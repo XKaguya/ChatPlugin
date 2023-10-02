@@ -8,7 +8,12 @@ This plugin send message to same side as player's.
 Usage:
 
 Step 1. Press ~
+
 Step 2. input command .say and content and send to who
+
+Step 3. Press Enter
+
+And you'll see message.
 
 Examples:
 
@@ -22,11 +27,6 @@ Send Hello to every human player.
 Send Hello to every player.
 
 
-
-Step 3. Press Enter
-
-And you'll see message.
-
 # Chinese
 
 本插件基于 Exiled. 本插件允许你用键盘与队友交流的插件。
@@ -36,6 +36,8 @@ And you'll see message.
 
 1. 按 ~
 2. 输入 .say 和你想要的内容与想要发送给谁。
+3. 按下回车键。
+然后你就看到了你输入的内容。
 
 例如：
 
@@ -48,9 +50,7 @@ And you'll see message.
 .say 你好 3
 发送你好给所有玩家。
 
-4. 按下回车键
 
-然后你就看到了你输入的内容。
 
 
 
