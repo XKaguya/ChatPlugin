@@ -8,7 +8,21 @@ This plugin send message to same side as player's.
 Usage:
 
 Step 1. Press ~
-Step 2. input command .say and content
+Step 2. input command .say and content and send to who
+
+Examples:
+
+.say Hello 1
+Send Hello to every player that is your side.
+
+.say Hello 2
+Send Hello to every human player.
+
+.say Hello 3
+Send Hello to every player.
+
+
+
 Step 3. Press Enter
 
 And you'll see message.
@@ -21,8 +35,20 @@ And you'll see message.
 用法:
 
 1. 按 ~
-2. 输入 .say 和你想要的内容
-3. 按下回车键
+2. 输入 .say 和你想要的内容与想要发送给谁。
+
+例如：
+
+.say 你好 1
+发送 你好 给与你相同阵营的玩家。
+
+.say 你好 2
+发送 你好 给所有人类玩家。
+
+.say 你好 3
+发送你好给所有玩家。
+
+4. 按下回车键
 
 然后你就看到了你输入的内容。
 
