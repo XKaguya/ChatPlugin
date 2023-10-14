@@ -8,7 +8,9 @@ This plugin send message to same side as player's.
 Usage:
 
 Step 1. Press ~
+
 Step 2. input command .say and content
+
 Step 3. Press Enter
 
 Like:
