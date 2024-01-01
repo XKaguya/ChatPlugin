@@ -58,6 +58,22 @@ Example:
 .gsay HelloWorld
 ```
 
+# Configuration
+```
+chat_plugin:
+# Whether or not this plugin is enabled.
+is_enabled: true
+# Whether or not to display debug messages in the server console.
+debug: false
+# Use old chat mode instead of new one.
+legacy_chat_mode: false
+# Set true to Broadcast to use Broadcast. Otherwise will be Hint.
+human_chat: false
+# Set true to Broadcast to use Broadcast. Otherwise will be Hint.
+scp_chat: true
+```
+
+
 
 
 
