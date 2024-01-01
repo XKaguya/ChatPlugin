@@ -7,17 +7,15 @@ This plugin send message to same side as player's.
 
 Usage:
 
-Step 1. Press ~
-
-Step 2. input command .say and content
-
-Step 3. Press Enter
+```
+.say [Content] Channel
+```
 
 Example:
 
-.say [Hello World] 1
-
-Will send Hello World to all players that is same side as you.
+```
+.say [Hello World] 3
+```
 
 Channels:
 
