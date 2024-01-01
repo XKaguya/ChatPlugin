@@ -9,7 +9,7 @@ namespace ChatPlugin
         public override string Author => "Akizuki Kaguya";
         public override string Name => "ChatPlugin";
 
-        public override Version Version { get; } = new(1, 0, 1);
+        public override Version Version { get; } = new(1, 0, 2);
         public override Version RequiredExiledVersion { get; } = new(8, 0, 1);
 
         public static ChatPlugin Instance;
