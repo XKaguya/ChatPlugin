@@ -20,12 +20,11 @@ Example:
 ```
 
 Channels:
-
-1 Same Side
-
+```
+1 Faction
 2 All Human
-
 3 All Players
+```
 
 ## New Chat Mode
 
