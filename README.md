@@ -1,9 +1,9 @@
 # ChatPlugin
 
-# English
-
 A plugin based on Exiled for SCP:SL. This plugin allows player use keyboard to communicate with teammates.
 This plugin send message to same side as player's.
+
+## Legacy Chat Mode
 
 Usage:
 
@@ -13,7 +13,7 @@ Step 2. input command .say and content
 
 Step 3. Press Enter
 
-Like:
+Example:
 
 .say [Hello World] 1
 
@@ -27,30 +27,40 @@ Channels:
 
 3 All Players
 
-# Chinese
+## New Chat Mode
 
-本插件基于 Exiled. 本插件允许你用键盘与队友交流的插件。
-这个插件默认发送信息给相同阵营的玩家。
+### New Chat Mode does not support space between contents. It will seperate your words. Use space carefully.
 
-用法:
+### Faction Chat
 
-1. 按 ~
-2. 输入 .say 和你想要的内容
-3. 按下回车键
+Usage:
 
-如：
+```
+.say Content
+```
 
-.say [你 好] 1
+Example:
 
-会发送 你 好 给所有与你阵营相同的玩家。
+```
+.say HelloWorld
+```
 
-频道：
 
-1 同阵营
+## Global Chat
 
-2 全体人类
+Usage:
 
-3 全体
+```
+.gsay Content
+```
+
+Example:
+
+```
+.gsay HelloWorld
+```
+
+
 
 
 
