@@ -190,7 +190,16 @@ public class SayCommand : ICommand
             int broadcastType = API.GetBroadcastType(player);
             string finalMessage = API.BuildFinalMessage(player, arguments.Array[1], broadcastType);
 
-            var showToPlayers = Player.List.Where(p => p.Role.Side == player.Role.Side).ToList();
+            var showToPlayers = new List<Player>();
+                
+            if (player.IsScp || player.IsTutorial)
+            {
+                showToPlayers = Player.List.Where(p => p.IsScp || p.IsTutorial).ToList();
+            }
+            else
+            {
+                showToPlayers = Player.List.Where(p => p.Role.Side == player.Role.Side).ToList();
+            }
             foreach (var p in showToPlayers)
             {
                 if (p.IsScp || p.Role.Side == Side.Flamingo || p.Role.Side == Side.Tutorial)
