@@ -59,6 +59,12 @@ Example:
 .gsay HelloWorld
 ```
 
+# TODO
+```
+New Chat Mode make it support space.
+Chat history
+```
+
 # Configuration
 ```
 chat_plugin:
