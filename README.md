@@ -3,6 +3,8 @@
 A plugin based on Exiled for SCP:SL. This plugin allows player use keyboard to communicate with teammates.
 This plugin send message to same side as player's.
 
+# There's currently no English support. If you need it, Always welcom to pull a request about it or open a issue for that. I'll do if i have time.
+
 ## Legacy Chat Mode
 
 Usage:
