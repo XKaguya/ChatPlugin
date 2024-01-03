@@ -28,8 +28,6 @@ Channels:
 
 ## New Chat Mode
 
-### New Chat Mode does not support space between contents. It will seperate your words. Use space carefully.
-
 ### Faction Chat
 
 Usage:
@@ -58,11 +56,22 @@ Example:
 ```
 .gsay HelloWorld
 ```
+# Chat History and Server Broadcast
 
-# TODO
+Usage:
+
 ```
-New Chat Mode make it support space.
-Chat history
+.his line
+
+.bc content
+```
+
+Example:
+
+```
+.his 5
+
+.bc Hello World
 ```
 
 # Configuration
