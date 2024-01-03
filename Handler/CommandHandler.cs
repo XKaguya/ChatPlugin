@@ -258,11 +258,9 @@ public class GlobalSayCommand : ICommand
 
         int broadcastType = API.GetBroadcastType(player);
         
-        string range = API.GetRange(player);
-        
         string msg = API.GetMessage(arguments);
 
-        API.StoreMessage(range, msg);
+        API.StoreMessage("Global", msg);
         
         string finalMessage = API.BuildFinalMessage(player, msg, broadcastType);
         
