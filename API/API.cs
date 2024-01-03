@@ -196,7 +196,7 @@ namespace ChatPlugin
             }
             else
             {
-                var filteredMessages = ChatHistory.Where(entry => entry.Key == faction || entry.Key == "Server").Select(entry => entry.Value);
+                var filteredMessages = ChatHistory.Where(entry => entry.Key == faction || entry.Key == "Server" || entry.Key == "Global").Select(entry => entry.Value);
                 var result = string.Join(Environment.NewLine, filteredMessages.Take(line));
                 
                 return Environment.NewLine + result;
